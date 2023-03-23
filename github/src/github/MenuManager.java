@@ -9,6 +9,7 @@ public class MenuManager {
 		System.out.println("4. view Member");
 		System.out.println("5. exit");
 		System.out.println("git test");
+		System.out.println("17234871928471092");
 		
 	}
 }
