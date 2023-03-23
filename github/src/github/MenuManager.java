@@ -9,5 +9,7 @@ public class MenuManager {
 		System.out.println("4. view Member");
 		System.out.println("5. exit");
 		System.out.println("123123123213");
+		System.out.println("122122");
+		System.out.println("122122");		
 	}
 }
