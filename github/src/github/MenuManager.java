@@ -3,6 +3,36 @@ package github;
 import java.util.Scanner;
 
 public class MenuManager {
+	public static void addMember(){
+		
+		Scanner input = new Scanner(System.in);
+		System.out.print("Member ID : ");
+		int memberId = input.nextInt();
+		System.out.print("Member Name : ");
+		String memberName = input.next();
+		System.out.print("Member P-Number : ");
+		int memberPhone = input.nextInt();
+		System.out.print("Member E-mail : ");
+		String memberEmail = input.next();
+	}	
+	public static void deleteMember() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Member ID : ");
+		int memberId = input.nextInt();
+	}
+	public static void editMember() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Member ID : ");
+		int memberId = input.nextInt();
+	}
+	public static void viewMember() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Member ID : ");
+		int memberId = input.nextInt();
+	}
+	public static void Menu() {
+		
+	}
 	public static void main(String[] args) {
 		int num = 0;
 		Scanner input = new Scanner(System.in);
@@ -20,19 +50,19 @@ public class MenuManager {
 			switch (num)
 			{
 			case 1:
-				System.out.print("Member ID : ");
-				int memberId = input.nextInt();
-				System.out.print("Member Name : ");
-				String memberName = input.next();
-				System.out.print("Member P-Number :");
-				int memberPnumber = input.nextInt();
-				System.out.print("Member E-mail : ");
-				String memberEmail = input.next();
+				addMember();
 				break;
 			case 2:
-				
+				deleteMember();
+				break;
 			case 3:
+				editMember();
+				break;
 			case 4:
+				viewMember();
+				break;
+			case 5:
+				continue;
 			
 			}
 			
