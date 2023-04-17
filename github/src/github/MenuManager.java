@@ -29,7 +29,7 @@ public class MenuManager {
             memberManager.editMember();
             break;
          case 4:
-            memberManager.viewMember();
+            memberManager.viewmembers();
             break;
          case 5:
             continue;

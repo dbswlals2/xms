@@ -22,6 +22,6 @@ public class Member {//0
       this.memberEmail = memberemail;
    }
    public void printInFo() {
-      System.out.println("name:"+ memberName +"id:" +memberId +"phone:" + memberPhone +"email" +memberEmail);
+      System.out.println("name:"+ memberName +" id:" +memberId +" phone:" + memberPhone +" email:" +memberEmail);
    }
 }
