@@ -3,6 +3,9 @@ package github;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import member.CrossfitMember;
+import member.Member;
+
 public class MemberManager {
 	ArrayList<Member> members = new ArrayList<Member>();
 	Member member;
@@ -12,23 +15,37 @@ public class MemberManager {
 	}
    
    public void addMember(){
-	   Member member = new Member();
-	   System.out.print("Member ID : ");
-	   member.memberId = input.nextInt();
-	   System.out.print("Member Name : ");
-	   member.memberName = input.next();
-	   System.out.print("Member P-Number : ");
-	   member.memberPhone = input.nextInt();
-	   System.out.print("Member E-mail : ");
-	   member.memberEmail = input.next();
-	   members.add(member);
+	   
+	   int kind = 0;
+	   Member member;
+	   while(kind != 1 && kind != 2) {
+		   System.out.println("1 for WorkOut");
+		   System.out.println("2 for Crossfit");
+		   System.out.print("Select num for Member Kind between 1 and 2: ");
+		   kind = input.nextInt();
+		   if(kind == 1) {
+			   member = new Member();
+			   member.getUserInput(input);
+			   members.add(member);
+			   break;
+		   }
+		   else if(kind ==2) {
+			   member = new CrossfitMember();
+			   member.getUserInput(input);
+			   members.add(member);
+			   break;
+		   }
+		   else {
+			   System.out.println("Select num for Member Kind between 1 and 2: ");
+		   }
+	   }
    }   
    public void deleteMember() {
       System.out.print("Member ID : ");
       int memberId = input.nextInt();
       int index = -1;
       for(int i = 0; i<members.size(); i++) {
-    	  if(members.get(i).memberId == memberId) {
+    	  if(members.get(i).getMemberId() == memberId) {
     		  index = i;
     		  break;
     	  }
@@ -48,7 +65,7 @@ public class MemberManager {
 	   int memberId = input.nextInt();
 	   for(int i = 0; i<members.size(); i++) {
 		   Member member = members.get(i);
-		   if(members.get(i).memberId == memberId) {
+		   if(members.get(i).getMemberId() == memberId) {
 			   int num = -1;
 			   while(num != 5) {
 				   System.out.println("1. Edit Id");
@@ -60,19 +77,23 @@ public class MemberManager {
 				   num = input.nextInt();
 				   if(num == 1) {
 					   System.out.print("Member ID : ");
-					   member.memberId = input.nextInt();
+					   int id = input.nextInt();
+					   member.setMemberId(id);
 				   }
 				   if(num == 2) {
 					   System.out.print("Member Name : ");
-					   member.memberName = input.next();
+					   String name = input.next();
+					   member.setMemberName(name);
 				   }
 				   if(num == 3) {
 					   System.out.print("Member P-Number : ");
-					   member.memberPhone = input.nextInt();
+					   int phone = input.nextInt();
+					   member.setMemberPhone(phone);
 				   }
 				   if(num == 4) {
 					   System.out.print("Member E-mail : ");
-					   member.memberEmail = input.next();
+					   String email = input.next();
+					   member.setMemberEmail(email);
 				   }
 				   if(num == 5) {
 					   continue;
@@ -85,6 +106,7 @@ public class MemberManager {
    public void viewmembers() {
 //     System.out.print("Member ID : ");
 //     int memberId = input.nextInt();
+	   System.out.println("# of registered members:" + members.size());
 	   for(int i = 0; i<members.size(); i++) {
 		   members.get(i).printInFo();
 	   }
