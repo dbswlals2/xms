@@ -2,9 +2,10 @@ package member;
 
 import java.util.Scanner;
 
-public class CrossfitMember extends Member implements MemberInput{
+public class FitnessMember extends Member implements MemberInput {
+	protected boolean clothes;
 
-	public CrossfitMember(MemberKind kind) { // 기본 생성자
+	public FitnessMember(MemberKind kind) {
 		super(kind);
 	}
 
@@ -34,11 +35,24 @@ public class CrossfitMember extends Member implements MemberInput{
 				this.setMemberEmail("");
 				break;
 			} else {
-				
+			}
+		}
+
+		answer = 'x';
+		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
+			System.out.print("Do you have clothes? (Y/N) ");
+			answer = input.next().charAt(0);
+			if (answer == 'y' || answer == 'Y') {
+				this.clothes = true;
+				break;
+			} else if (answer == 'n' || answer == 'N') {
+				this.clothes = false;
+				break;
+			} else {
 			}
 		}
 	}
-	
+
 	public void printInfo() {
 		String skind = "none";
 		switch (this.kind) {
@@ -53,8 +67,8 @@ public class CrossfitMember extends Member implements MemberInput{
 			break;
 		default:
 		}
-		System.out.println("kind:" + skind + "name:" + memberName + " id:" + memberId + " phone:" + memberPhone
-				+ " email:" + memberEmail);
+		System.out.println("kind:" + skind + " name:" + memberName + " id:" + memberId + " phone:" + memberPhone
+				+ " email:" + memberEmail + " clothes:" + clothes);
 	}
 
 }

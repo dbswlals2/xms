@@ -2,12 +2,12 @@ package member;
 
 import java.util.Scanner;
 
-public class CrossfitMember extends Member implements MemberInput{
-
-	public CrossfitMember(MemberKind kind) { // 기본 생성자
+public class PilatesMember extends Member implements MemberInput{
+	
+	public PilatesMember(MemberKind kind) {
 		super(kind);
 	}
-
+	
 	public void getUserInput(Scanner input) {
 		System.out.print("Member ID : ");
 		int memberId = input.nextInt();
@@ -21,22 +21,9 @@ public class CrossfitMember extends Member implements MemberInput{
 		int memberPhone = input.nextInt();
 		this.setMemberPhone(memberPhone);
 
-		char answer = 'x';
-		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
-			System.out.print("Do you have an email address? (Y/N) ");
-			answer = input.next().charAt(0);
-			if (answer == 'y' || answer == 'Y') {
-				System.out.print("Member E-mail : ");
-				String memberEmail = input.next();
-				this.setMemberEmail(memberEmail);
-				break;
-			} else if (answer == 'n' || answer == 'N') {
-				this.setMemberEmail("");
-				break;
-			} else {
-				
-			}
-		}
+		System.out.print("Member E-mail : ");
+		String memberEmail = input.next();
+		this.setMemberEmail(memberEmail);
 	}
 	
 	public void printInfo() {
