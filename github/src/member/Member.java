@@ -2,7 +2,9 @@ package member;
 
 import java.util.*;
 
-public abstract class Member {// 0
+import exception.EmailFormatException;
+
+public abstract class Member implements MemberInput {// 0
 	// Member classÀÇ º¯¼ö
 	protected MemberKind kind = MemberKind.Fitness;
 	protected int memberId;
@@ -50,7 +52,7 @@ public abstract class Member {// 0
 		return memberId;
 	}
 
-	public void setMemberId(int memberId) {
+	public void setId(int memberId) {
 		this.memberId = memberId;
 	}
 
@@ -58,7 +60,7 @@ public abstract class Member {// 0
 		return memberName;
 	}
 
-	public void setMemberName(String memberName) {
+	public void setName(String memberName) {
 		this.memberName = memberName;
 	}
 
@@ -66,7 +68,7 @@ public abstract class Member {// 0
 		return memberPhone;
 	}
 
-	public void setMemberPhone(int memberPhone) {
+	public void setPhone(int memberPhone) {
 		this.memberPhone = memberPhone;
 	}
 
@@ -74,12 +76,59 @@ public abstract class Member {// 0
 		return memberEmail;
 	}
 
-	public void setMemberEmail(String memberEmail) {
+	public void setEmail(String memberEmail) throws EmailFormatException {
+		if(!memberEmail.contains("@") && !memberEmail.equals("")) {
+			throw new EmailFormatException();
+		}
 		this.memberEmail = memberEmail;
 	}
 
 	public abstract void printInfo();
 
-	
+	public void setMemberId(Scanner input) {
+		System.out.print("Member ID : ");
+		int id = input.nextInt();
+		this.setId(id);
+	}
+	public void setMemberName(Scanner input) {
+		System.out.print("Member Name : ");
+		String name = input.next();
+		this.setName(name);
+	}
+
+	public void setMemberEmail(Scanner input) {
+		String memberEmail = "";
+		while(!memberEmail.contains("@")) {
+			System.out.print("Member E-mail : ");
+			memberEmail = input.next();
+			try {
+				this.setEmail(memberEmail);
+			} catch (EmailFormatException e) {
+				System.out.println("INcorrect Email Format. put the e-mail address that contains @");
+			}
+		}
+	}
+
+	public void setMemberPhone(Scanner input) {
+		System.out.print("Member P-Number : ");
+		int phone = input.nextInt();
+		this.setPhone(phone);
+	}
+	public String getKindString() {
+		String skind = "none";
+		switch (this.kind) {
+		case Fitness:
+			skind = "Fitness";
+			break;
+		case Crossfit:
+			skind = "Corssfit";
+			break;
+		case Pilates:
+			skind = "Pilates";
+			break;
+		default:
+		}
+		return skind;
+	}
 
 }
