@@ -1,7 +1,7 @@
 package member;
 
 public enum MemberKind {
-	Fitness,
-	Crossfit,
-	Pilates
+   Fitness,
+   Crossfit,
+   Pilates
 }
