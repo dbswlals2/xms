@@ -1,20 +1,25 @@
 package github;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import member.CrossfitMember;
 import member.FitnessMember;
-import member.Member;
 import member.MemberInput;
 import member.MemberKind;
 import member.PilatesMember;
 
-public class MemberManager {
+public class MemberManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3116599696556583067L;
+
 	ArrayList<MemberInput> members = new ArrayList<MemberInput>();
 
-	Scanner input;
+	transient Scanner input;
 
 	MemberManager(Scanner input) { // 0
 		this.input = input;
