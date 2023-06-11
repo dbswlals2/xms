@@ -1,0 +1,2 @@
+5월 29, 2023 8:37:55 오후 log.EventLogger log
+INFO: view a list of Member

@@ -21,6 +21,7 @@ public abstract class InfoMember extends Member {
 		char answer = 'x';
 		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
 			System.out.print("Do you have an email address? (Y/N) ");
+			
 			answer = input.next().charAt(0);
 			try {
 				if (answer == 'y' || answer == 'Y') {
@@ -37,6 +38,7 @@ public abstract class InfoMember extends Member {
 			}
 			catch(EmailFormatException e) {
 				System.out.println("INcorrect Email Format. put the e-mail address that contains @");
+				
 
 			}
 		}
