@@ -9,47 +9,48 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class MemberAdder extends JFrame{
-	
-	public MemberAdder() {
+public class MemberAdder extends JPanel {
+
+	WindowFrame frame;
+
+	public MemberAdder(WindowFrame frame) {
+		this.frame = frame;
 		JPanel panel = new JPanel();
 		JPanel panel2 = new JPanel();
 		panel.setLayout(new SpringLayout());
-		
-		JLabel labelID = new JLabel("ID: ", JLabel.TRAILING); 
+
+		JLabel labelID = new JLabel("ID: ", JLabel.TRAILING);
 		JTextField fieldID = new JTextField(10);
 		labelID.setLabelFor(fieldID);
 		panel.add(labelID);
 		panel.add(fieldID);
-		
-		JLabel labelName = new JLabel("Name: ", JLabel.TRAILING); 
+
+		JLabel labelName = new JLabel("Name: ", JLabel.TRAILING);
 		JTextField fieldName = new JTextField(10);
 		labelID.setLabelFor(fieldName);
 		panel.add(labelName);
 		panel.add(fieldName);
-		
-		JLabel labelEmail = new JLabel("Email: ", JLabel.TRAILING); 
+
+		JLabel labelEmail = new JLabel("Email: ", JLabel.TRAILING);
 		JTextField fieldEmail = new JTextField(10);
 		labelID.setLabelFor(fieldEmail);
 		panel.add(labelEmail);
 		panel.add(fieldEmail);
-		
-		JLabel labelPhone = new JLabel("Phone: ", JLabel.TRAILING); 
+
+		JLabel labelPhone = new JLabel("Phone: ", JLabel.TRAILING);
 		JTextField fieldPhone = new JTextField(10);
 		labelID.setLabelFor(fieldPhone);
 		panel.add(labelPhone);
 		panel.add(fieldPhone);
-		
+
 		panel2.add(new JButton("Save"));
 		panel2.add(new JButton("Cancel"));
-		
+
 		SpringUtilities.makeCompactGrid(panel, 4, 2, 6, 6, 6, 6);
-		
-		this.setSize(300,300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		this.add(panel, BorderLayout.NORTH);
 		this.add(panel2, BorderLayout.CENTER);
-		this.setVisible(true);	
+		this.setVisible(true);
 	}
 
 }

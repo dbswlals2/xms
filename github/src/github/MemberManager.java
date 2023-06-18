@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import member.CrossfitMember;
 import member.FitnessMember;
+import member.Member;
 import member.MemberInput;
 import member.MemberKind;
 import member.PilatesMember;
@@ -33,7 +34,7 @@ public class MemberManager implements Serializable{
 			try {
 				System.out.println("1 for Fitness");
 				System.out.println("2 for Crossfit");
-				System.out.println("3 for Pilatess");
+				System.out.println("3 for Pilates");
 				System.out.print("Select num 1, 2, or 3 for Member Kind:");
 				kind = input.nextInt();
 				if (kind == 1) {
@@ -132,6 +133,19 @@ public class MemberManager implements Serializable{
 		}
 	}
 
+	
+	public int size() {
+		return members.size();
+	}
+	
+	public MemberInput get(int index) {
+		return (Member) members.get(index);
+	}
+	
+	public void setScanner(Scanner input) {
+		this.input = input;
+	}
+	 
 	public void showEditMenu() {
 		System.out.println("1. Edit Id");
 		System.out.println("2. Edit Name");
